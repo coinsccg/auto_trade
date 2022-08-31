@@ -1,2 +1,4 @@
 venv
 wallets/wallets.csv
+__pycache__
+.idea

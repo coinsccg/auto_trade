@@ -1,16 +1,25 @@
-# This is a sample Python script.
+import os.path
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from trade.eth import ContractCall
+
+abs_path = os.path.abspath(".")
+
+config_path = os.path.join(abs_path, "config/config.toml")
+
+router_abi_path = os.path.join(abs_path, "abi/pancake_router.abi")
+pair_abi_path = os.path.join(abs_path, "abi/erc20_pair.abi")
+usdt_abi_path = os.path.join(abs_path, "abi/usdt.abi")
+
+wallets_old_path = os.path.join(abs_path, "wallets/wallets_old.csv")
+wallets_new_path = os.path.join(abs_path, "wallets/wallets_new.csv")
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def main():
+    instance = ContractCall(config_path, router_abi_path, pair_abi_path, usdt_abi_path)
+
+    # 将旧钱包中的代币转入新钱包
+    instance.transfer_to_new(wallets_old_path, wallets_new_path)
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    main()

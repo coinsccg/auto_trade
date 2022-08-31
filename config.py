@@ -2,15 +2,12 @@ import toml
 import json
 
 
-def read_abi(router_path: str, pair_path: str) -> (list, list):
+def read_abi(path: str) -> list:
     try:
-        with open(router_path, "r") as f:
-            router = f.read()
+        with open(path, "r") as f:
+            content = f.read()
 
-        with open(pair_path, "r") as f:
-            pair = f.read()
-
-        return json.loads(router), json.loads(pair)
+        return json.loads(content)
     except Exception as e:
         raise e
 
