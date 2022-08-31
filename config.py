@@ -2,12 +2,14 @@ import toml
 import json
 
 
-def read_abi(path: str) -> list:
+def read_abi(*args) -> list:
+    abi_list = []
     try:
-        with open(path, "r") as f:
-            content = f.read()
-
-        return json.loads(content)
+        for p in args:
+            with open(p, "r") as f:
+                content = f.read()
+            abi_list.append(json.loads(content))
+        return abi_list
     except Exception as e:
         raise e
 

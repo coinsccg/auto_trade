@@ -13,3 +13,11 @@ router = "0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3"
 pair = "0xc146e5B02dfe86FDe7A1302711e91B052947F96f"
 erc20 = "0xfC9Be152343fe598a3a935833Cde4ea51CceDcE7"
 usdt = "0x844c10DCA138DCfA1cb78F3f2ebCC7461995099c"
+
+[account]
+sender = ""
+pk = ""
+
+[amount]
+eth = ""
+erc20 = ""

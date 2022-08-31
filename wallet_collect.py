@@ -118,7 +118,7 @@ def eth_transfer(sender: str, private_key: str):
 def transfer_to_usdt(sender: str, to: str, private_key: str):
     router_abi, pair_abi, usdt_abi = read_abi("../abi/pancake_router.abi", "../abi/erc20_pair.abi",
                                               "../abi/usdt.abi")
-    cfg = read_config("../config/config.toml")
+    cfg = read_config("config/config.toml")
     rpc = cfg.get("rpc").get("bsc_testnet")
     if not cfg.get("dev"):
         rpc = cfg.get("rpc").get("bsc_mainnet")
@@ -140,9 +140,9 @@ def transfer_to_usdt(sender: str, to: str, private_key: str):
 
 if __name__ == "__main__":
     wallets = create_wallet(5)
-    new = os.path.abspath(r"..") + "/wallets/wallets_new.csv"
-    old = os.path.abspath(r"..") + "/wallets/wallets_old.csv"
-    src = os.path.abspath(r"..") + "/backup/"
+    new = os.path.abspath(r"") + "/wallets/wallets_new.csv"
+    old = os.path.abspath(r"") + "/wallets/wallets_old.csv"
+    src = os.path.abspath(r"") + "/backup/"
     # write_wallet_to_csv(new, old, src, wallets)
 
     w = read_wallet_from_csv(new)

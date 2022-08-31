@@ -1,4 +1,5 @@
 import os.path
+from loguru import logger
 
 from trade.eth import ContractCall
 
@@ -13,8 +14,11 @@ usdt_abi_path = os.path.join(abs_path, "abi/usdt.abi")
 wallets_old_path = os.path.join(abs_path, "wallets/wallets_old.csv")
 wallets_new_path = os.path.join(abs_path, "wallets/wallets_new.csv")
 
+log_path = os.path.join(abs_path, "logs/transfer.log")
+
 
 def main():
+    logger.add(log_path, format="{time} {level} {message}", level="DEBUG")
     instance = ContractCall(config_path, router_abi_path, pair_abi_path, usdt_abi_path)
 
     # 将旧钱包中的代币转入新钱包
